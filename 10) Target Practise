@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+int findPoint(int i, int j){//O(1)
+    if (i==1 || j==1 || i==10 || j==10){
+        return 1;
+    }
+    if (i==2 || j==2 || i==9 || j==9){
+        return 2;
+    }
+    if (i==3 || j==3 || i==8 || j==8){
+        return 3;
+    }
+    if (i==4 || j==4 || i==7 || j==7){
+        return 4;
+    }
+    if (i==5 || j==5 || i==6 || j==6){
+        return 5;
+    }
+}
+
+int main(){
+    int t;
+    cin>>t;
+    while (t--){
+        vector<vector<char>> store(11,vector<char>(11,'y'));
+        for (int i=1;i<=10;i++){
+            for (int j=1;j<=10;j++){
+                cin>>store[i][j];
+            }
+        }
+        int sum=0;
+        for (int i=1;i<=10;i++){
+            for (int j=1;j<=10;j++){
+                if (store[i][j]=='X'){
+                    sum=sum+findPoint(i,j);
+                }
+            }
+        }
+        //T.C:-O(n) n=total no of boxes
+        //S.C:- O(100)
+        cout<<sum<<endl;
+    }
+    return 0;
+}
