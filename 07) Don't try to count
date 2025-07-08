@@ -1,1 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n, m;
+        cin >> n >> m;
+        string x;
+        string s;
+        cin >> x;
+        cin >> s;
+        int count = 0;
+        if (x.find(s) != string::npos)
+        {
+            cout << count << endl;
+            continue;
+        }
+        bool flag=false;
+        for (int i = 0; i < 5; i++)//O(5)
+        {
+            x = x + x;
+            count++;
+            if (x.find(s) != string::npos)//O(N*M)
+            {
+                flag=true;
+                break;
+            }
+        }
+        if (flag){
+            cout<<count<<endl;
+        }
+        else{
+            cout<<-1<<endl;
+        }
 
+        // T.C:- O(5*32*n*M)=O(5*32*25)=O(4000)
+        //S.C:- O(n+m)
+    }
+    return 0;
+}
