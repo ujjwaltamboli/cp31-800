@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int> store(n,0);
+        for (int i=0;i<n;i++){
+            cin>>store[i];
+        }
+        vector<int> ans;
+        ans.push_back(store[0]);
+        for (int i=1;i<n;i++){
+            if (store[i-1]>store[i]){
+                ans.push_back(store[i]);
+            }
+            ans.push_back(store[i]);
+        }
+        int m=ans.size();
+        cout<<m<<endl;
+        for (int i=0;i<m;i++){//O(m)
+            cout<<ans[i]<<" ";
+        }
+        cout<<endl;
+        //T.C:- O(m)
+        //S.C:- O(m)
+    }
+    return 0;
+}
