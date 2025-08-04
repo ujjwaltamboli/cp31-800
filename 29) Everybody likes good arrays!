@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while (t--){
+        int n;
+        cin>>n;
+        vector<int> store(n,0);
+        for (int i=0;i<n;i++){ //O(n)
+            int a;
+            cin>>a;
+            store[i]=a%2;
+        }
+        int count=0;
+        int op=0;
+        int i=0;
+        while (i<n){//O(n)
+            while (i<n && store[i]==0){
+                count++;
+                i++;
+            }
+            if (count>0){
+                op=op+(count-1);
+            }
+            count=0;
+            while (i<n && store[i]==1){
+                count++;
+                i++;
+            }
+            if (count>0){
+                op=op+(count-1);
+            }
+            count=0;
+        }
+        cout<<op<<endl;
+
+        //T.C:- O(n);
+        //S.C:- O(n);
+    }
+    return 0;
+}
