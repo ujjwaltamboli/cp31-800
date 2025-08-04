@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while (t--){
+        int n;
+        cin>>n;
+        int digit=-1;
+        int count=0;
+        while (n!=0){
+            digit=n%10;
+            n=n/10;
+            count++;
+        }
+        cout<<(count-1)*9+digit<<endl;
+        // T.C:- O(6);
+        //S.C:- O(1);
+    }
+    return 0;
+}
