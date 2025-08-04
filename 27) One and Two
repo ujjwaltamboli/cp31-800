@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while (t--){
+        int n;
+        cin>>n;
+        vector<int> store(n,0);
+        int totalCount2=0;
+        for (int i=0;i<n;i++){
+            cin>>store[i];
+            if (store[i]==2){
+                totalCount2++;
+            }
+        }
+        int count2=0;
+        int ans=-1;
+        int i=0;
+        for (i=0;i<n;i++){
+            if (store[i]==2){
+                count2++;
+            }
+            if (count2==totalCount2-count2){
+                ans=i;
+                break;
+            }
+        }
+        if (i==n){
+            cout<<-1<<endl;
+            continue;
+        }
+        cout<<ans+1<<endl;
+
+        //T.C.:- O(n);
+        //S.C:- O(n);
+    }
+    return 0;
+}
